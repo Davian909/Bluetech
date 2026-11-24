@@ -1,0 +1,97 @@
+// Skema database Bluetech untuk produksi cloud (Vercel + Neon PostgreSQL).
+// Identik 100% dengan prisma/schema.prisma (SQLite lokal) — otomatis dipilih
+// oleh scripts/prepare-prisma.mjs ketika DATABASE_URL diawali postgres:// / postgresql://.
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TourismAttraction {
+  id          String   @id @default(cuid())
+  code        String?  @unique
+  name        String
+  category    String
+  tourismType String   @default("attraction")
+  zoneClass   String   @default("Tinggi")
+  description String
+  operator    String?
+  lat         Float
+  lon         Float
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SpatialDataset {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  category         String
+  dataType         String
+  format           String
+  source           String
+  crs              String
+  coverage         String   @default("Kawasan Pantai Losari")
+  fileSize         String
+  description      String
+  note             String?
+  publicUrl        String?
+  validationStatus String   @default("Tervalidasi")
+  visiblePublic    Boolean  @default(true)
+  defaultOn        Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model CitizenReport {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  reporterName String
+  category     String
+  location     String
+  description  String
+  photoName    String?
+  status       String   @default("diterima")
+  adminNote    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model EducationContent {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  category      String   @default("Data Olahan")
+  summary       String
+  contextLosari String
+  stepsJson     String
+  sortOrder     Int      @default(0)
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model MitigationAction {
+  id         String   @id @default(cuid())
+  title      String
+  hazardType String
+  location   String
+  priority   String   @default("Sedang")
+  status     String   @default("Direncanakan")
+  progress   Int      @default(0)
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AppSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}

@@ -8,6 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { db } from "@/lib/db";
 import { EDUKASI_MITIGASI_LOSARI, type LosariManifest } from "@/lib/losari-data";
+import bundledManifest from "../../public/data/manifest.json";
 
 let seedPromise: Promise<void> | null = null;
 
@@ -16,7 +17,7 @@ function readManifestFromDisk(): LosariManifest | null {
     const p = path.join(process.cwd(), "public", "data", "manifest.json");
     return JSON.parse(fs.readFileSync(p, "utf8")) as LosariManifest;
   } catch {
-    return null;
+    return bundledManifest as unknown as LosariManifest;
   }
 }
 

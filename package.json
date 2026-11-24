@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack -p 3000",
-    "build": "next build --webpack",
+    "build": "node scripts/prepare-prisma.mjs && next build --webpack",
     "start": "node scripts/start-prod.mjs",
-    "postinstall": "prisma generate",
+    "postinstall": "node scripts/prepare-prisma.mjs --generate-only",
     "lint": "eslint .",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --accept-data-loss"

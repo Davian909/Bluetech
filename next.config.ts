@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: false,
   productionBrowserSourceMaps: false,
+  outputFileTracingIncludes: {
+    "/api/**/*": ["./public/data/manifest.json"],
+  },
   experimental: {
     webpackMemoryOptimizations: true,
     cpus: 1,
