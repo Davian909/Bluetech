@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --webpack -p 3000",
     "build": "next build --webpack",
-    "start": "NODE_ENV=production node .next/standalone/server.js",
+    "start": "node scripts/start-prod.mjs",
+    "postinstall": "prisma generate",
     "lint": "eslint .",
     "db:generate": "prisma generate",
     "db:push": "prisma db push --accept-data-loss"

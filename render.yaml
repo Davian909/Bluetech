@@ -1,0 +1,19 @@
+# Konfigurasi Render Blueprint untuk link preview presentasi Bluetech.
+# Terpisah pada branch "preview" agar tidak mengganggu branch utama ("main").
+services:
+  - type: web
+    name: bluetech-preview
+    runtime: node
+    plan: free
+    region: singapore
+    branch: preview
+    autoDeploy: true
+    buildCommand: npm install --include=dev && npx prisma generate && mkdir -p db && npx prisma db push --accept-data-loss && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: DATABASE_URL
+        value: file:../db/custom.db
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
