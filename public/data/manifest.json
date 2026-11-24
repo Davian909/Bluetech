@@ -1,0 +1,607 @@
+{
+  "generatedAt": "2026-11-23T05:29:15.401Z",
+  "wilayahStudi": {
+    "nama": "Kawasan Pantai Losari",
+    "kota": "Kota Makassar, Sulawesi Selatan",
+    "sumberData": [
+      "inaRISK (BNPB)",
+      "BIG",
+      "OpenStreetMap (OSM)",
+      "BMKG"
+    ],
+    "center": [
+      -5.1438,
+      119.4005
+    ],
+    "defaultZoom": 14,
+    "bounds": [
+      [
+        -5.161,
+        119.38
+      ],
+      [
+        -5.127,
+        119.418
+      ]
+    ]
+  },
+  "rasters": [
+    {
+      "id": "bahaya_terpadu",
+      "name": "Bahaya Terpadu (Multi-Ancaman)",
+      "category": "Kebencanaan",
+      "description": "Peta kelas bahaya terpadu hasil penggabungan ancaman pesisir di Kawasan Pantai Losari.",
+      "sourceFile": "data/processed/raster/bahaya_terpadu.tif",
+      "url": "/data/raster/bahaya_terpadu.png",
+      "sourceCrs": "EPSG:32750",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.159771,
+          119.380964
+        ],
+        [
+          -5.128203,
+          119.416758
+        ]
+      ],
+      "nativePx": [
+        132,
+        116
+      ],
+      "pixelSizeMeters": [
+        29.98,
+        29.98
+      ],
+      "pngPx": [
+        420,
+        370
+      ],
+      "pngBytes": 2943,
+      "classCounts": {
+        "0": 9770,
+        "1": 413,
+        "2": 1688,
+        "3": 3441
+      },
+      "legend": {
+        "type": "classes",
+        "items": [
+          {
+            "label": "Kelas 1 — Rendah",
+            "color": "#22c55e"
+          },
+          {
+            "label": "Kelas 2 — Sedang",
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Kelas 3 — Tinggi",
+            "color": "#ef4444"
+          }
+        ]
+      },
+      "note": null,
+      "defaultVisible": true
+    },
+    {
+      "id": "potensi_wisata",
+      "name": "Kelas Potensi Wisata",
+      "category": "Pariwisata",
+      "description": "Peta raster resolusi 10 m yang mengelompokkan tingkat potensi pengembangan wisata pesisir.",
+      "sourceFile": "data/processed/raster/potensi_wisata_kelass.tif",
+      "url": "/data/raster/potensi_wisata.png",
+      "sourceCrs": "EPSG:32750",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.159608,
+          119.381176
+        ],
+        [
+          -5.128384,
+          119.41618
+        ]
+      ],
+      "nativePx": [
+        387,
+        344
+      ],
+      "pixelSizeMeters": [
+        10,
+        10
+      ],
+      "pngPx": [
+        420,
+        375
+      ],
+      "pngBytes": 3490,
+      "classCounts": {
+        "0": 57695,
+        "1": 10406,
+        "2": 33188,
+        "3": 31839
+      },
+      "legend": {
+        "type": "classes",
+        "items": [
+          {
+            "label": "Kelas 1 — Potensi Rendah",
+            "color": "#f59e0b"
+          },
+          {
+            "label": "Kelas 2 — Potensi Sedang",
+            "color": "#0ea5e9"
+          },
+          {
+            "label": "Kelas 3 — Potensi Tinggi",
+            "color": "#10b981"
+          }
+        ]
+      },
+      "note": null,
+      "defaultVisible": false
+    },
+    {
+      "id": "bahaya_banjir",
+      "name": "Indeks Bahaya Banjir",
+      "category": "Kebencanaan",
+      "description": "Indeks bahaya banjir skala 0–1 (inaRISK) dipotong pada wilayah studi Kawasan Pantai Losari.",
+      "sourceFile": "data/processed/raster/bahaya_banjir.tif",
+      "url": "/data/raster/bahaya_banjir.png",
+      "sourceCrs": "EPSG:4326",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.161247,
+          119.379737
+        ],
+        [
+          -5.126848,
+          119.418167
+        ]
+      ],
+      "nativeCropPx": [
+        143,
+        128
+      ],
+      "pngPx": [
+        572,
+        512
+      ],
+      "pngBytes": 19128,
+      "validPixels": 6276,
+      "nodataPixels": 12028,
+      "valueRangeLocal": [
+        0,
+        0.8657
+      ],
+      "legend": {
+        "type": "gradient",
+        "gradient": "linear-gradient(90deg, #22c55e 0%, #eab308 33%, #f97316 66%, #dc2626 100%)",
+        "minLabel": "0,0 (Rendah)",
+        "midLabel": "0,5 (Sedang)",
+        "maxLabel": "1,0 (Tinggi)"
+      },
+      "note": null,
+      "defaultVisible": false
+    },
+    {
+      "id": "bahaya_gelombang_abrasi",
+      "name": "Indeks Bahaya Gelombang Ekstrem & Abrasi",
+      "category": "Kebencanaan",
+      "description": "Indeks bahaya gelombang ekstrem dan abrasi pantai skala 0–1 pada koridor pesisir Losari.",
+      "sourceFile": "data/processed/raster/bahaya_gelombang_abrasi.tif",
+      "url": "/data/raster/bahaya_gelombang_abrasi.png",
+      "sourceCrs": "EPSG:4326",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.161229,
+          119.379887
+        ],
+        [
+          -5.126988,
+          119.418172
+        ]
+      ],
+      "nativeCropPx": [
+        142,
+        127
+      ],
+      "pngPx": [
+        568,
+        508
+      ],
+      "pngBytes": 3502,
+      "validPixels": 3366,
+      "nodataPixels": 14668,
+      "valueRangeLocal": [
+        0.5667,
+        0.6167
+      ],
+      "legend": {
+        "type": "gradient",
+        "gradient": "linear-gradient(90deg, #22c55e 0%, #eab308 33%, #f97316 66%, #dc2626 100%)",
+        "minLabel": "0,0 (Rendah)",
+        "midLabel": "0,5 (Sedang)",
+        "maxLabel": "1,0 (Tinggi)"
+      },
+      "note": null,
+      "defaultVisible": false
+    },
+    {
+      "id": "bahaya_cuaca_ekstrem",
+      "name": "Indeks Bahaya Cuaca Ekstrem",
+      "category": "Kebencanaan",
+      "description": "Indeks bahaya cuaca ekstrem skala 0–1 (inaRISK) pada Kawasan Pantai Losari.",
+      "sourceFile": "data/processed/raster/bahaya_cuaca_ekstrem.tif",
+      "url": "/data/raster/bahaya_cuaca_ekstrem.png",
+      "sourceCrs": "EPSG:4326",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.161229,
+          119.379887
+        ],
+        [
+          -5.126988,
+          119.418172
+        ]
+      ],
+      "nativeCropPx": [
+        142,
+        127
+      ],
+      "pngPx": [
+        568,
+        508
+      ],
+      "pngBytes": 4434,
+      "validPixels": 9976,
+      "nodataPixels": 8058,
+      "valueRangeLocal": [
+        0.3194,
+        0.3216
+      ],
+      "legend": {
+        "type": "gradient",
+        "gradient": "linear-gradient(90deg, #22c55e 0%, #eab308 33%, #f97316 66%, #dc2626 100%)",
+        "minLabel": "0,0 (Rendah)",
+        "midLabel": "0,5 (Sedang)",
+        "maxLabel": "1,0 (Tinggi)"
+      },
+      "note": "Catatan data sumber: file raster cuaca ekstrem dan gempa bumi dari sumber aslinya memiliki nilai piksel yang identik (MD5 sama).",
+      "defaultVisible": false
+    },
+    {
+      "id": "bahaya_gempa_bumi",
+      "name": "Indeks Bahaya Gempa Bumi",
+      "category": "Kebencanaan",
+      "description": "Indeks bahaya gempa bumi skala 0–1 pada Kawasan Pantai Losari.",
+      "sourceFile": "data/processed/raster/bahaya_gempa_bumi.tif",
+      "url": "/data/raster/bahaya_gempa_bumi.png",
+      "sourceCrs": "EPSG:4326",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.161229,
+          119.379887
+        ],
+        [
+          -5.126988,
+          119.418172
+        ]
+      ],
+      "nativeCropPx": [
+        142,
+        127
+      ],
+      "pngPx": [
+        568,
+        508
+      ],
+      "pngBytes": 4434,
+      "validPixels": 9976,
+      "nodataPixels": 8058,
+      "valueRangeLocal": [
+        0.3194,
+        0.3216
+      ],
+      "legend": {
+        "type": "gradient",
+        "gradient": "linear-gradient(90deg, #22c55e 0%, #eab308 33%, #f97316 66%, #dc2626 100%)",
+        "minLabel": "0,0 (Rendah)",
+        "midLabel": "0,5 (Sedang)",
+        "maxLabel": "1,0 (Tinggi)"
+      },
+      "note": "Catatan data sumber: file raster gempa bumi yang diterima memiliki isi piksel yang identik dengan raster cuaca ekstrem (MD5 sama).",
+      "defaultVisible": false
+    },
+    {
+      "id": "fasilitas_umum",
+      "name": "Raster Fasilitas Umum",
+      "category": "Infrastruktur",
+      "description": "Sebaran nilai kelas fasilitas umum (0 hingga 10.000) pada Kawasan Pantai Losari.",
+      "sourceFile": "data/processed/raster/fasilitas_umum.tif",
+      "url": "/data/raster/fasilitas_umum.png",
+      "sourceCrs": "EPSG:4326",
+      "webCrs": "EPSG:4326",
+      "bounds": [
+        [
+          -5.161229,
+          119.379887
+        ],
+        [
+          -5.126988,
+          119.418172
+        ]
+      ],
+      "nativeCropPx": [
+        142,
+        127
+      ],
+      "pngPx": [
+        568,
+        508
+      ],
+      "pngBytes": 4632,
+      "validPixels": 9697,
+      "nodataPixels": 8337,
+      "valueRangeLocal": [
+        0,
+        10000
+      ],
+      "legend": {
+        "type": "classes",
+        "items": [
+          {
+            "label": "0 (Latar daratan)",
+            "color": "#bad6e8"
+          },
+          {
+            "label": "500 – 2.000",
+            "color": "#0284c7"
+          },
+          {
+            "label": "3.000 – 3.200",
+            "color": "#4f46e5"
+          },
+          {
+            "label": "6.000 – 10.000",
+            "color": "#9333ea"
+          }
+        ]
+      },
+      "note": null,
+      "defaultVisible": false
+    }
+  ],
+  "vectors": {
+    "zonaWisataUrl": "/data/vector/zona_wisata.geojson",
+    "atraksiWisataUrl": "/data/vector/atraksi_wisata.geojson",
+    "zonaMitigasiUrl": "/data/vector/zona_mitigasi.geojson",
+    "ringkasan": {
+      "zonaWisata": [
+        {
+          "gridcode": 3,
+          "kelas": "Tinggi",
+          "warna": "#10b981",
+          "luasHa": 318.56,
+          "luasKm2": 3.19,
+          "ringkas": "Area paling potensial untuk pengembangan wisata pesisir dan bahari di Kawasan Pantai Losari. Didukung kedekatan garis pantai, aksesibilitas kota yang baik, dan keragaman daya tarik di sekitarnya.",
+          "aktivitas": "Wisata pantai & promenade, kuliner pesisir, ruang publik rekreasi, dan pusat kegiatan wisata bahari."
+        },
+        {
+          "gridcode": 2,
+          "kelas": "Sedang",
+          "warna": "#0ea5e9",
+          "luasHa": 331.74,
+          "luasKm2": 3.32,
+          "ringkas": "Area berpotensi cukup baik sebagai zona pendukung wisata maupun perluasan kegiatan rekreasi pesisir dengan penataan akses dan fasilitas tambahan.",
+          "aktivitas": "Zona penunjang wisata, sentra UMKM & kuliner lokal, ruang terbuka hijau, dan penginapan."
+        },
+        {
+          "gridcode": 1,
+          "kelas": "Rendah",
+          "warna": "#f59e0b",
+          "luasHa": 104,
+          "luasKm2": 1.04,
+          "ringkas": "Area dengan tingkat kesesuaian wisata lebih terbatas karena karakteristik ruang, fungsi lahan eksisting, atau pertimbangan kondisi lingkungan setempat.",
+          "aktivitas": "Pemanfaatan terbatas, zona penyangga, atau perlu kajian kelayakan tambahan sebelum pengembangan wisata."
+        }
+      ],
+      "atraksiWisata": [
+        {
+          "id": "atr-1",
+          "osm_id": "1333197829",
+          "name": "Gedung Mulo",
+          "original_name": "Gedung Mulo",
+          "tourism": "museum",
+          "kategori": "Museum",
+          "artwork_type": null,
+          "operator": null,
+          "deskripsi": "Objek wisata budaya & sejarah di Kawasan Pantai Losari.",
+          "lat": -5.145584,
+          "lon": 119.415599
+        },
+        {
+          "id": "atr-2",
+          "osm_id": "2077058728",
+          "name": "Kanebo Art Shop Makassar",
+          "original_name": "Kanebo Art Shop Makassar",
+          "tourism": "artwork",
+          "kategori": "Karya Seni / Atraksi",
+          "artwork_type": null,
+          "operator": null,
+          "deskripsi": "Daya tarik karya seni / atraksi di sekitar Kawasan Pantai Losari, Kota Makassar.",
+          "lat": -5.136371,
+          "lon": 119.405739
+        },
+        {
+          "id": "atr-3",
+          "osm_id": "10168131146",
+          "name": "Karya Seni — Grafiti Pesisir Losari",
+          "original_name": null,
+          "tourism": "artwork",
+          "kategori": "Karya Seni (Grafiti)",
+          "artwork_type": "graffiti",
+          "operator": null,
+          "deskripsi": "Titik karya seni (grafiti) terdata di OpenStreetMap pada Kawasan Pantai Losari.",
+          "lat": -5.158328,
+          "lon": 119.396936
+        },
+        {
+          "id": "atr-4",
+          "osm_id": "10699282990",
+          "name": "Patung Tedong Bonga",
+          "original_name": "Patung Tedong Bonga",
+          "tourism": "artwork",
+          "kategori": "Patung / Monumen",
+          "artwork_type": "statue",
+          "operator": null,
+          "deskripsi": "The Tedong Bonga statue stands firmly on the Toraja pavilion on Losari Beach, Makassar city",
+          "lat": -5.141081,
+          "lon": 119.40655
+        },
+        {
+          "id": "atr-5",
+          "osm_id": "11922187303",
+          "name": "Karya Seni — Patung/Instalasi Pesisir",
+          "original_name": null,
+          "tourism": "artwork",
+          "kategori": "Karya Seni (Patung)",
+          "artwork_type": "sculpture",
+          "operator": null,
+          "deskripsi": "Titik karya seni (patung) terdata di OpenStreetMap pada Kawasan Pantai Losari.",
+          "lat": -5.148678,
+          "lon": 119.400472
+        },
+        {
+          "id": "atr-6",
+          "osm_id": "12824935757",
+          "name": "Tugu Sultan Hasanuddin",
+          "original_name": "Tugu Sultan Hasanuddin",
+          "tourism": "artwork",
+          "kategori": "Patung / Monumen",
+          "artwork_type": "statue",
+          "operator": null,
+          "deskripsi": "Daya tarik patung / monumen di sekitar Kawasan Pantai Losari, Kota Makassar.",
+          "lat": -5.136579,
+          "lon": 119.408229
+        },
+        {
+          "id": "atr-7",
+          "osm_id": "12824935762",
+          "name": "Patung Macan",
+          "original_name": "Patung Macan",
+          "tourism": "artwork",
+          "kategori": "Patung / Monumen",
+          "artwork_type": "statue",
+          "operator": null,
+          "deskripsi": "Daya tarik patung / monumen di sekitar Kawasan Pantai Losari, Kota Makassar.",
+          "lat": -5.136146,
+          "lon": 119.408044
+        },
+        {
+          "id": "atr-8",
+          "osm_id": "13203610381",
+          "name": "Museum Kota Makassar",
+          "original_name": "Museum Kota Makassar",
+          "tourism": "museum",
+          "kategori": "Museum",
+          "artwork_type": null,
+          "operator": "Pemerintah Kota Makassar",
+          "deskripsi": "Objek wisata budaya & sejarah di Kawasan Pantai Losari (dikelola Pemerintah Kota Makassar).",
+          "lat": -5.134647,
+          "lon": 119.40862
+        }
+      ],
+      "zonaMitigasi": [
+        {
+          "gridcode": 3,
+          "zona": "Bahaya Tinggi",
+          "warna": "#ef4444",
+          "urutan": 1,
+          "luasHa": 130.52,
+          "luasKm2": 1.31,
+          "ringkas": "Zona prioritas mitigasi dengan tingkat bahaya terpadu paling tinggi. Memerlukan kewaspadaan tinggi, pembatasan pembangunan baru yang rentan, serta kesiapan jalur evakuasi menuju area aman.",
+          "arahan": "Utamakan keselamatan jiwa, perkuat proteksi pesisir/drainase, dan pastikan akses evakuasi bebas hambatan."
+        },
+        {
+          "gridcode": 2,
+          "zona": "Bahaya Sedang",
+          "warna": "#f59e0b",
+          "urutan": 2,
+          "luasHa": 9.01,
+          "luasKm2": 0.09,
+          "ringkas": "Zona dengan tingkat potensi bahaya menengah yang tetap memerlukan kesiapsiagaan warga terutama saat cuaca ekstrem, hujan lebat, atau pasang purnama.",
+          "arahan": "Terapkan bangunan adaptif, jaga saluran drainase, dan pantau informasi resmi BMKG & BPBD."
+        },
+        {
+          "gridcode": 1,
+          "zona": "Bahaya Rendah",
+          "warna": "#22c55e",
+          "urutan": 3,
+          "luasHa": 0.54,
+          "luasKm2": 0.01,
+          "ringkas": "Zona relatif lebih aman dibanding area pesisir rawan lainnya, sehingga berpotensi dimanfaatkan sebagai kawasan penyangga atau lokasi titik aman sementara.",
+          "arahan": "Pertahankan fungsi ruang yang aman dan tetap ikuti rambu serta arahan kesiapsiagaan daerah."
+        },
+        {
+          "gridcode": null,
+          "zona": "Sempadan Pantai",
+          "warna": "#0284c7",
+          "urutan": 4,
+          "luasHa": 133.06,
+          "luasKm2": 1.33,
+          "ringkas": "Kawasan lindung di sepanjang tepi pantai yang berfungsi menahan hempasan gelombang, abrasi, dan pasang laut untuk melindungi daratan di belakangnya.",
+          "arahan": "Jaga fungsi lindung sempadan, hindari pembangunan permanen yang merusak pantai, dan dukung vegetasi/struktur pelindung pantai."
+        }
+      ]
+    }
+  },
+  "pasangSurut": {
+    "ekstremUrl": "/data/parameter/pasang_surut_ekstrem.json",
+    "deretUrl": "/data/parameter/pasang_surut_deret.json",
+    "ringkasan": {
+      "ekstrem": {
+        "totalKejadian": 75,
+        "jumlahPasang": 37,
+        "jumlahSurut": 38,
+        "pasangTertinggi": {
+          "waktu": "2026-11-26 10:50:00",
+          "ketinggian": 0.83,
+          "jenis": "Pasang"
+        },
+        "surutTerendah": {
+          "waktu": "2026-11-27 01:30:00",
+          "ketinggian": -0.83,
+          "jenis": "Surut"
+        }
+      },
+      "deret": {
+        "totalBaris": 4320,
+        "periode": {
+          "mulai": "2026-11-21 00:00:00",
+          "akhir": "2026-12-20 23:50:00"
+        },
+        "rentang": {
+          "est": [
+            0.64,
+            2.3
+          ],
+          "msl": [
+            -0.83,
+            0.83
+          ],
+          "lat": [
+            0.05,
+            1.72
+          ]
+        },
+        "jumlahHari": 30
+      }
+    }
+  }
+}

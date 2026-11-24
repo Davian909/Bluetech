@@ -1,0 +1,94 @@
+// Skema database Bluetech — WebGIS Kawasan Pantai Losari (SQLite + Prisma)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model TourismAttraction {
+  id          String   @id @default(cuid())
+  code        String?  @unique
+  name        String
+  category    String
+  tourismType String   @default("attraction") // museum | artwork | attraction
+  zoneClass   String   @default("Tinggi")     // Tinggi | Sedang | Rendah
+  description String
+  operator    String?
+  lat         Float
+  lon         Float
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SpatialDataset {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  category         String   // Kebencanaan | Pariwisata | Infrastruktur | Vektor | Pasang Surut
+  dataType         String   // Raster | Vektor | Parameter
+  format           String   // GeoTIFF | GeoJSON | CSV
+  source           String
+  crs              String
+  coverage         String   @default("Kawasan Pantai Losari")
+  fileSize         String
+  description      String
+  note             String?
+  publicUrl        String?
+  validationStatus String   @default("Tervalidasi") // Tervalidasi | Menunggu | Perlu Cek
+  visiblePublic    Boolean  @default(true)
+  defaultOn        Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model CitizenReport {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  reporterName String
+  category     String
+  location     String
+  description  String
+  photoName    String?
+  status       String   @default("diterima") // diterima | diproses | selesai
+  adminNote    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model EducationContent {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  category      String   @default("Data Olahan") // Data Olahan | Pesisir Terkait
+  summary       String
+  contextLosari String
+  stepsJson     String   // JSON array string langkah mitigasi
+  sortOrder     Int      @default(0)
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model MitigationAction {
+  id         String   @id @default(cuid())
+  title      String
+  hazardType String
+  location   String
+  priority   String   @default("Sedang") // Tinggi | Sedang | Rendah
+  status     String   @default("Direncanakan") // Direncanakan | Berjalan | Selesai
+  progress   Int      @default(0)
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AppSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}

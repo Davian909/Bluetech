@@ -1,0 +1,1390 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Bluetech — "Ocean Breeze" Design System
+   Color grading: Deep Ocean Blue · Reef Green · Cream · White
+   ============================================================ */
+
+@theme {
+  /* Deep ocean blues */
+  --color-ocean-50: #eff7fb;
+  --color-ocean-100: #d9edf6;
+  --color-ocean-200: #aed8ea;
+  --color-ocean-300: #79bcdb;
+  --color-ocean-400: #3f9cc6;
+  --color-ocean-500: #1d80b2;
+  --color-ocean-600: #146795;
+  --color-ocean-700: #0f507a;
+  --color-ocean-800: #0b3d5f;
+  --color-ocean-900: #072c47;
+  --color-ocean-950: #041d30;
+
+  /* Reef / lagoon greens */
+  --color-reef-50: #ecfaf5;
+  --color-reef-100: #d0f2e6;
+  --color-reef-200: #a3e4cf;
+  --color-reef-300: #6ed1b4;
+  --color-reef-400: #3cb899;
+  --color-reef-500: #1e9c80;
+  --color-reef-600: #147d67;
+  --color-reef-700: #106253;
+  --color-reef-800: #0c4a40;
+  --color-reef-900: #08362f;
+
+  /* Warm cream & sand */
+  --color-cream-50: #fdfaf2;
+  --color-cream-100: #faf4e4;
+  --color-cream-200: #f5ecd4;
+  --color-cream-300: #eddfba;
+  --color-cream-400: #e2cd97;
+  --color-cream-500: #d4b876;
+  --color-sand-200: #f0e6cc;
+  --color-sand-300: #e7d9b4;
+  --color-sand-400: #d9c493;
+
+  /* Sunset coral (alerts only) */
+  --color-coral-500: #e86a5e;
+  --color-coral-600: #d24d42;
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #cfe6f6;
+  --foreground: #0b3d5f;
+  --card: #ffffff;
+  --card-foreground: #0b3d5f;
+  --popover: #ffffff;
+  --popover-foreground: #0b3d5f;
+  --primary: #0f507a;
+  --primary-foreground: #fdfaf2;
+  --secondary: #e2effa;
+  --secondary-foreground: #0b3d5f;
+  --muted: #e6f1fa;
+  --muted-foreground: #3f6b8d;
+  --accent: #d0f2e6;
+  --accent-foreground: #0c4a40;
+  --destructive: #d24d42;
+  --success: #1e9c80;
+  --info: #1d80b2;
+  --warning: #b45309;
+  --border: #b7d8ec;
+  --input: #9fc9e2;
+  --ring: #1d80b2;
+  --chart-1: #1d80b2;
+  --chart-2: #1e9c80;
+  --chart-3: #d4b876;
+  --chart-4: #3f9cc6;
+  --chart-5: #147d67;
+  --sidebar: #072c47;
+  --sidebar-foreground: #d9edf6;
+  --sidebar-primary: #3cb899;
+  --sidebar-primary-foreground: #041d30;
+  --sidebar-accent: #0f507a;
+  --sidebar-accent-foreground: #fdfaf2;
+  --sidebar-border: #0f507a;
+  --sidebar-ring: #3cb899;
+}
+
+.dark {
+  --background: #041d30;
+  --foreground: #d9edf6;
+  --card: #072c47;
+  --card-foreground: #d9edf6;
+  --popover: #072c47;
+  --popover-foreground: #d9edf6;
+  --primary: #3f9cc6;
+  --primary-foreground: #041d30;
+  --secondary: #0b3d5f;
+  --secondary-foreground: #d9edf6;
+  --muted: #0b3d5f;
+  --muted-foreground: #79a3bd;
+  --accent: #0c4a40;
+  --accent-foreground: #a3e4cf;
+  --destructive: #e86a5e;
+  --border: #0f507a;
+  --input: #0f507a;
+  --ring: #3cb899;
+  --chart-1: #3f9cc6;
+  --chart-2: #3cb899;
+  --chart-3: #d4b876;
+  --chart-4: #79bcdb;
+  --chart-5: #1e9c80;
+  --sidebar: #041d30;
+  --sidebar-foreground: #d9edf6;
+  --sidebar-primary: #3cb899;
+  --sidebar-primary-foreground: #041d30;
+  --sidebar-accent: #0b3d5f;
+  --sidebar-accent-foreground: #d9edf6;
+  --sidebar-border: #0f507a;
+  --sidebar-ring: #3cb899;
+
+  /* Re-map aksen krem → biru laut agar tema gelap serasi (dipakai border/chip) */
+  --color-cream-300: #1d5c8a;
+  --color-cream-200: #14507d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-attachment: fixed;
+  }
+
+  /* Laut tropis Nusantara — gradasi biru laut dalam, fixed di belakang konten */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image:
+      linear-gradient(180deg, #e3f1fb 0%, #c9e4f5 36%, #b4dbef 68%, #a3d0e9 100%),
+      radial-gradient(1250px 600px at 50% 118%, rgba(11, 61, 95, 0.26), transparent 62%),
+      radial-gradient(950px 500px at 88% -12%, rgba(255, 255, 255, 0.5), transparent 58%);
+    pointer-events: none;
+  }
+
+  /* Tema gelap — laut dalam saat malam */
+  .dark body::before {
+    background-image:
+      linear-gradient(180deg, #0a3552 0%, #062a44 40%, #041d30 78%, #031522 100%),
+      radial-gradient(1100px 520px at 50% 115%, rgba(60, 184, 153, 0.13), transparent 62%),
+      radial-gradient(900px 460px at 86% -10%, rgba(63, 156, 198, 0.2), transparent 58%);
+  }
+
+  /* Band ombak beranimasi di dasar layar — dua lapis SVG dengan laju berbeda */
+  body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 110px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='110' viewBox='0 0 1200 110'%3E%3Cpath d='M0 62 C150 34 300 92 450 62 C600 32 750 92 900 62 C1050 34 1150 78 1200 62 L1200 110 L0 110 Z' fill='%231d80b2' fill-opacity='0.10'/%3E%3Cpath d='M0 84 C200 60 400 104 600 84 C800 64 1000 108 1200 84 L1200 110 L0 110 Z' fill='%231e9c80' fill-opacity='0.10'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1800' height='110' viewBox='0 0 1800 110'%3E%3Cpath d='M0 72 C225 50 450 98 675 72 C900 48 1125 100 1350 72 C1575 46 1725 92 1800 72 L1800 110 L0 110 Z' fill='%230b3d5f' fill-opacity='0.07'/%3E%3C/svg%3E");
+    background-repeat: repeat-x, repeat-x;
+    background-size: 1200px 110px, 1800px 110px;
+    animation: wave-slide 30s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::after {
+      animation: none;
+    }
+  }
+
+  /* Band ombak versi tema gelap — garis air berwarna terang transparan */
+  .dark body::after {
+    opacity: 0.45;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='110' viewBox='0 0 1200 110'%3E%3Cpath d='M0 62 C150 34 300 92 450 62 C600 32 750 92 900 62 C1050 34 1150 78 1200 62 L1200 110 L0 110 Z' fill='%233cb899' fill-opacity='0.13'/%3E%3Cpath d='M0 84 C200 60 400 104 600 84 C800 64 1000 108 1200 84 L1200 110 L0 110 Z' fill='%2379bcdb' fill-opacity='0.12'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1800' height='110' viewBox='0 0 1800 110'%3E%3Cpath d='M0 72 C225 50 450 98 675 72 C900 48 1125 100 1350 72 C1575 46 1725 92 1800 72 L1800 110 L0 110 Z' fill='%23a3e4cf' fill-opacity='0.08'/%3E%3C/svg%3E");
+  }
+  ::selection {
+    background: rgba(60, 184, 153, 0.35);
+  }
+}
+
+/* ------------------------- Custom scrollbar ------------------------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #aed8ea transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #79bcdb, #3cb899);
+  border-radius: 99px;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3f9cc6, #1e9c80);
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+
+/* ========================= Keyframes ========================= */
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+@keyframes float-y-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes shimmer-x {
+  0% { background-position: -200% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes ping-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  80%, 100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes bob-boat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1.2deg); }
+}
+@keyframes sweep-glow {
+  0% { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(240%) skewX(-12deg); }
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes wave-slide {
+  from { background-position: 0 bottom, 0 bottom; }
+  to { background-position: -1200px bottom, -1800px bottom; }
+}
+
+/* ========================= Utilities ========================= */
+@utility card-marine {
+  border-radius: var(--radius-xl);
+  border: 1px solid #e9dfc4;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 1px 2px rgba(7, 44, 71, 0.05),
+    0 10px 28px -14px rgba(7, 44, 71, 0.16);
+  backdrop-filter: blur(6px);
+}
+@utility card-glass {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+@utility text-gradient-ocean {
+  background: linear-gradient(92deg, #0b3d5f 0%, #1d80b2 42%, #1e9c80 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+@utility animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@utility animate-fade-in {
+  opacity: 0;
+  animation: fade-in 0.7s ease forwards;
+}
+@utility animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+@utility animate-float-soft {
+  animation: float-y-soft 6s ease-in-out infinite;
+}
+@utility animate-bob {
+  animation: bob-boat 4.2s ease-in-out infinite;
+}
+@utility animate-spin-slower {
+  animation: spin-slow 14s linear infinite;
+}
+@utility shimmer-line {
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.75) 45%,
+    rgba(174, 216, 234, 0.5) 55%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-x 2.8s linear infinite;
+}
+
+/* Section-level stagger helper: parent sets --stagger-base */
+@utility stagger-item {
+  opacity: 0;
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--stagger-base, 0ms) + var(--stagger-i, 0) * 90ms);
+}
+
+/* Animated ocean wave band (SVG path inside a .wave-band) */
+@utility wave-band {
+  animation: wave-drift 9s linear infinite;
+}
+@utility wave-band-slow {
+  animation: wave-drift 16s linear infinite;
+}
+@utility wave-band-slower {
+  animation: wave-drift 26s linear infinite;
+}
+
+/* Flowing dashed line (alur pelayaran / arus) */
+@utility flow-dash {
+  stroke-dasharray: 6 6;
+  animation: dash-flow 1.4s linear infinite;
+}
+
+/* Ping ring for live indicators */
+@utility ping-ring {
+  animation: ping-ring 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Gradient pill button hover sweep */
+@utility btn-sweep {
+  position: relative;
+  overflow: hidden;
+}
+@utility btn-sweep-glow {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%) skewX(-12deg);
+}
+
+/* Underline link animation */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover {
+  background-size: 100% 1.5px;
+}
+
+/* Subtle dotted-map texture for panels */
+.dot-grid {
+  background-image: radial-gradient(rgba(20, 103, 149, 0.14) 1.1px, transparent 1.1px);
+  background-size: 18px 18px;
+}
+
+/* Aurora gradient banner */
+.aurora-ocean {
+  background:
+    radial-gradient(620px 240px at 8% 0%, rgba(60, 184, 153, 0.30), transparent 60%),
+    radial-gradient(520px 260px at 40% 110%, rgba(29, 128, 178, 0.35), transparent 60%),
+    radial-gradient(700px 300px at 95% 30%, rgba(63, 156, 198, 0.22), transparent 62%),
+    linear-gradient(100deg, #072c47 0%, #0f507a 38%, #146795 62%, #0e6e63 100%);
+  background-size: 160% 160%;
+  animation: gradient-pan 16s ease-in-out infinite;
+}
+
+/* ============================================================
+   PREMIUM LAYER — polish, glow & micro-interactions
+   ============================================================ */
+
+/* ---------------------------- Keyframes ---------------------------- */
+@keyframes rise-bubble {
+  0%   { transform: translate3d(0, 0, 0) scale(0.6); opacity: 0; }
+  12%  { opacity: 0.85; }
+  50%  { transform: translate3d(var(--bubble-drift, 8px), -190px, 0) scale(1); opacity: 0.55; }
+  100% { transform: translate3d(calc(var(--bubble-drift, 8px) * -0.6), -360px, 0) scale(1.15); opacity: 0; }
+}
+@keyframes beam-sweep {
+  0%   { transform: rotate(-26deg); opacity: 0.25; }
+  50%  { opacity: 0.6; }
+  100% { transform: rotate(26deg); opacity: 0.25; }
+}
+@keyframes bell-shake {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(13deg); }
+  30% { transform: rotate(-11deg); }
+  45% { transform: rotate(8deg); }
+  60% { transform: rotate(-6deg); }
+  75% { transform: rotate(3deg); }
+}
+@keyframes view-enter {
+  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes text-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes glow-soft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(110, 209, 180, 0); }
+  50% { box-shadow: 0 0 22px -2px rgba(110, 209, 180, 0.45); }
+}
+
+/* ------------------------- Kartu interaktif ------------------------- */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: #bfe0d2;
+  box-shadow:
+    0 2px 4px rgba(7, 44, 71, 0.05),
+    0 22px 44px -16px rgba(7, 44, 71, 0.24),
+    0 0 0 1px rgba(60, 184, 153, 0.12);
+}
+
+/* ------------------- Tombol utama gradasi + kilau ------------------- */
+.btn-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fdfaf2;
+  background: linear-gradient(135deg, #0f507a 0%, #146795 45%, #1e9c80 120%);
+  box-shadow:
+    0 10px 22px -10px rgba(20, 103, 149, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s,
+    filter 0.28s;
+}
+.btn-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.42) 50%, transparent 70%);
+  transform: translateX(-140%) skewX(-14deg);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+}
+.btn-hero:hover {
+  transform: translateY(-1.5px);
+  filter: brightness(1.08) saturate(1.05);
+  box-shadow:
+    0 14px 28px -12px rgba(20, 103, 149, 0.68),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.btn-hero:hover::after {
+  transform: translateX(140%) skewX(-14deg);
+}
+.btn-hero:active {
+  transform: translateY(0) scale(0.99);
+}
+.btn-hero:disabled {
+  opacity: 0.62;
+  transform: none;
+  filter: none;
+}
+
+/* ------------------------ Gelembung naik ------------------------ */
+.bubble {
+  position: absolute;
+  bottom: -14px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.9), rgba(163, 228, 207, 0.28) 58%, rgba(163, 228, 207, 0.08));
+  box-shadow: inset -1px -2px 3px rgba(20, 103, 149, 0.18), 0 0 6px rgba(163, 228, 207, 0.25);
+  animation: rise-bubble var(--bubble-dur, 9s) linear infinite;
+  animation-delay: var(--bubble-delay, 0s);
+  opacity: 0;
+}
+
+/* --------------------- Sorot lampu mercusuar --------------------- */
+.lighthouse-beam {
+  transform-box: view-box;
+  transform-origin: var(--beam-x, 1120px) var(--beam-y, 40px);
+  animation: beam-sweep 7s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+
+/* --------------------- Lonceng notifikasi --------------------- */
+.bell-hover:hover .animate-bell {
+  animation: bell-shake 0.7s ease-in-out;
+  transform-origin: 50% 12%;
+}
+
+/* ------------------- Transisi antarhalaman ------------------- */
+.view-enter {
+  animation: view-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Panel konten bergaya kaca (glassmorphism) — konten tetap terbaca
+   di atas latar pantai tropis, gambar tetap tembus lembut di sisi panel */
+.view-enter > * {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.44), rgba(246, 251, 253, 0.34));
+  backdrop-filter: blur(18px) saturate(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 22px;
+  box-shadow:
+    0 20px 55px -28px rgba(11, 61, 95, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------- Teks gradasi berkilau ------------------- */
+.text-shimmer {
+  background: linear-gradient(100deg, #f5ecd4 8%, #a3e4cf 30%, #ffffff 48%, #a3e4cf 66%, #f5ecd4 92%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: text-shimmer 5.5s linear infinite;
+}
+
+/* ------------------- Badge muncul halus ------------------- */
+.status-pop {
+  animation: pop-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ------------------- Nyalakan indikator aktif ------------------- */
+.glow-soft {
+  animation: glow-soft 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .lighthouse-beam,
+  .text-shimmer,
+  .glow-soft,
+  .view-enter,
+  .stagger-item,
+  .animate-fade-up,
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ============================================================
+   ASTRIX THEME LAYER — gaya dashboard "Astrix" diadaptasi
+   ke palet Bluetech (ocean · reef · cream)
+   ============================================================ */
+
+.astrix-theme,
+body:has(.astrix-theme) [data-slot="sidebar"][data-mobile="true"],
+body:has(.astrix-theme) [data-slot="dropdown-menu-content"],
+body:has(.astrix-theme) [data-slot="sheet-content"],
+body:has(.astrix-theme) [data-slot="tooltip-content"] {
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #0e212e;
+  --card: #ffffff;
+  --card-foreground: #0e212e;
+  --popover: #ffffff;
+  --popover-foreground: #0e212e;
+  --primary: #0f507a;
+  --primary-foreground: #fdfaf2;
+  --secondary: #f1f4f8;
+  --secondary-foreground: #0b3d5f;
+  --muted: #f1f4f8;
+  --muted-foreground: #5b7285;
+  --accent: #e9eff6;
+  --accent-foreground: #0b3d5f;
+  --destructive: #d24d42;
+  --success: #1e9c80;
+  --info: #1d80b2;
+  --warning: #b45309;
+  --border: #e4e9f0;
+  --input: #dfe6ee;
+  --ring: #3f9cc6;
+  --sidebar: #f7f9fb;
+  --sidebar-foreground: #0e212e;
+  --sidebar-primary: #0f507a;
+  --sidebar-primary-foreground: #fdfaf2;
+  --sidebar-accent: #ffffff;
+  --sidebar-accent-foreground: #0e212e;
+  --sidebar-border: #e6ecf2;
+  --sidebar-ring: #3f9cc6;
+  --shadow-sidebar-item: drop-shadow(1px 2px 12px rgb(20 103 149 / 12%));
+}
+
+.astrix-theme {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+/* Panel sidebar dengan sapuan warna laut (biru → hijau reef) */
+body:has(.astrix-theme) [data-slot="sidebar"] {
+  background-image: linear-gradient(175deg, #e7f2fa 0%, #f6f9f8 42%, #e9f5ee 100%);
+}
+
+/* Tooltip gelap ala astrix */
+body:has(.astrix-theme) [data-slot="tooltip-content"] {
+  background-color: var(--foreground) !important;
+  color: var(--background) !important;
+}
+
+body:has(.astrix-theme) [data-slot="tooltip-content"] > svg {
+  background-color: var(--foreground) !important;
+  fill: var(--foreground) !important;
+}
+
+/* Sembunyikan scrollbar kontainer utama */
+.astrix-theme.no-scrollbar,
+.astrix-theme .no-scrollbar,
+.astrix-theme.no-scrollbar *,
+.astrix-theme .no-scrollbar * {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.astrix-theme.no-scrollbar::-webkit-scrollbar,
+.astrix-theme .no-scrollbar::-webkit-scrollbar,
+.astrix-theme.no-scrollbar *::-webkit-scrollbar,
+.astrix-theme .no-scrollbar *::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar tipis untuk tabel lebar */
+.astrix-theme [data-slot="table-container"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.astrix-theme [data-slot="table-container"]::-webkit-scrollbar {
+  display: block;
+  height: 0.375rem;
+}
+
+.astrix-theme [data-slot="table-container"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.astrix-theme [data-slot="table-container"]::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+.astrix-theme [data-slot="table-container"]::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+/* Tabel bergaya astrix: header sekunder membulat, baris lapang */
+.astrix-theme [data-slot="table"] {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.astrix-theme [data-slot="table-header"] [data-slot="table-row"] {
+  height: 3.125rem;
+  border-bottom-width: 0;
+  background-color: var(--secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.astrix-theme [data-slot="table-header"] [data-slot="table-row"]:hover {
+  background-color: var(--secondary);
+}
+
+.astrix-theme [data-slot="table-head"] {
+  height: 3.125rem;
+  padding-inline: 1rem;
+  padding-block: 0;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 500;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.astrix-theme
+  [data-slot="table-header"]
+  [data-slot="table-head"]:first-child {
+  border-top-left-radius: calc(var(--radius) * 1.4);
+  border-bottom-left-radius: calc(var(--radius) * 1.4);
+}
+
+.astrix-theme
+  [data-slot="table-header"]
+  [data-slot="table-head"]:last-child {
+  border-top-right-radius: calc(var(--radius) * 1.4);
+  border-bottom-right-radius: calc(var(--radius) * 1.4);
+}
+
+.astrix-theme [data-slot="table-body"] [data-slot="table-row"] {
+  height: 4.375rem;
+  border-bottom-width: 0;
+  font-size: 1rem;
+}
+
+.astrix-theme [data-slot="table-body"] [data-slot="table-row"]:hover {
+  background-color: transparent;
+}
+
+.astrix-theme [data-slot="table-body"] [data-slot="table-row"] + [data-slot="table-row"] {
+  border-top: 1px solid var(--border);
+}
+
+.astrix-theme [data-slot="table-cell"] {
+  padding-inline: 1rem;
+  padding-block: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Utilitas warna status ala astrix */
+.astrix-theme .text-success {
+  color: var(--success);
+}
+
+.astrix-theme .bg-success {
+  background-color: var(--success);
+}
+
+.astrix-theme .bg-success\/10 {
+  background-color: color-mix(in oklab, var(--success) 10%, transparent);
+}
+
+.astrix-theme .text-info {
+  color: var(--info);
+}
+
+.astrix-theme .bg-info\/10 {
+  background-color: color-mix(in oklab, var(--info) 10%, transparent);
+}
+
+.astrix-theme .text-warning {
+  color: var(--warning);
+}
+
+.astrix-theme .bg-warning\/10 {
+  background-color: color-mix(in oklab, var(--warning) 10%, transparent);
+}
+
+.astrix-theme .text-input-addon-foreground {
+  color: var(--input-addon-foreground, var(--muted-foreground));
+}
+
+.astrix-theme .text-xxs {
+  font-size: 0.625rem;
+}
+
+/* Latar titik-titik halus untuk panel visual besar */
+.astrix-theme .pipeline-dots {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--foreground) 4%, transparent) 0.15625rem,
+    transparent 0.15625rem
+  );
+  background-size: 0.79375rem 0.79375rem;
+}
+
+/* Item dropdown lebih lapang ala astrix */
+body:has(.astrix-theme) [data-slot="dropdown-menu-content"] [data-slot="dropdown-menu-item"],
+body:has(.astrix-theme) [data-slot="dropdown-menu-content"] [data-slot="dropdown-menu-sub-trigger"] {
+  padding-inline: 0.625rem;
+  padding-block: 0.625rem;
+}
+
+body:has(.astrix-theme) [data-slot="dropdown-menu-content"] [data-slot="dropdown-menu-radio-item"],
+body:has(.astrix-theme) [data-slot="dropdown-menu-content"] [data-slot="dropdown-menu-checkbox-item"] {
+  padding-block: 0.625rem;
+  padding-left: 0.625rem;
+  padding-right: 2rem;
+}
+
+/* ---------- Popup peta dengan foto tempat + titik koordinat (Kesesuaian Pariwisata) ---------- */
+.bluetech-photo-popup .leaflet-popup-content {
+  margin: 10px 12px 12px;
+  width: 240px !important;
+  line-height: 1.45;
+}
+.bluetech-photo-popup .leaflet-popup-content-wrapper {
+  border-radius: 14px;
+}
+
+/* ============================================================
+   TEMA GELAP — override surface & teks yang hardcoded terang
+   ============================================================ */
+.dark .view-enter > * {
+  background: linear-gradient(180deg, rgba(7, 44, 71, 0.62), rgba(4, 29, 48, 0.52));
+  border-color: rgba(79, 148, 195, 0.3);
+  box-shadow:
+    0 20px 55px -30px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(121, 188, 219, 0.12);
+}
+
+.dark .card-marine {
+  border-color: #1d5c8a;
+  background: rgba(7, 44, 71, 0.86);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 12px 30px -16px rgba(0, 0, 0, 0.5);
+}
+
+.dark .card-glass {
+  background: rgba(7, 44, 71, 0.55);
+  border-color: rgba(121, 188, 219, 0.25);
+}
+
+/* Surface putih/krem → biru laut gelap */
+.dark .bg-white { background-color: var(--card); }
+.dark .bg-white\/70 { background-color: rgba(7, 44, 71, 0.7); }
+.dark .bg-white\/90 { background-color: rgba(7, 44, 71, 0.9); }
+.dark .bg-white\/95 { background-color: rgba(7, 44, 71, 0.95); }
+.dark .bg-cream-50 { background-color: #0b3d5f; }
+.dark .bg-cream-50\/60 { background-color: rgba(7, 44, 71, 0.65); }
+.dark .bg-cream-50\/85 { background-color: rgba(7, 44, 71, 0.85); }
+.dark .bg-cream-100 { background-color: rgba(15, 80, 122, 0.45); }
+.dark .bg-cream-100\/50 { background-color: rgba(15, 80, 122, 0.28); }
+.dark .bg-cream-100\/60 { background-color: rgba(15, 80, 122, 0.32); }
+.dark .bg-cream-100\/70 { background-color: rgba(15, 80, 122, 0.36); }
+.dark .bg-cream-100\/80 { background-color: rgba(121, 188, 219, 0.1); }
+.dark .bg-cream-200\/70 { background-color: rgba(20, 80, 125, 0.7); }
+.dark .bg-cream-200\/80 { background-color: rgba(20, 80, 125, 0.8); }
+
+/* Teks biru gelap → biru terang di tema gelap */
+.dark .text-ocean-400 { color: #79bcdb; }
+.dark .text-ocean-500 { color: #8fc6e6; }
+.dark .text-ocean-600 { color: #a9d6ea; }
+.dark .text-ocean-700 { color: #c3e3f4; }
+.dark .text-ocean-800 { color: #dcedf8; }
+.dark .text-ocean-900 { color: #eaf4fb; }
+
+/* Badge DEMO kuning gelap → emas terang di tema gelap */
+.dark [class*="8a6d1f"] { color: #dcbc7e; }
+
+/* Kartu kriteria aktif di mitigasi (gradient terang) → gradient laut gelap */
+.dark [class*="eff7fb"] {
+  background-image: linear-gradient(135deg, #0b3d5f, #0c4a40);
+}
+
+/* Catatan/badge amber (DATA DEMO) → versi gelap serasi */
+.dark .bg-amber-50 { background-color: rgba(180, 83, 9, 0.16); }
+.dark .bg-amber-100 { background-color: rgba(180, 83, 9, 0.28); }
+.dark .text-amber-700,
+.dark .text-amber-800 { color: #f0c987; }
+
+/* Badge/chip reef (hijau mint terang) → versi gelap serasi */
+.dark .bg-reef-50 { background-color: rgba(30, 156, 128, 0.16); }
+.dark .bg-reef-50\/60 { background-color: rgba(30, 156, 128, 0.14); }
+.dark .bg-reef-100 { background-color: rgba(30, 156, 128, 0.2); }
+.dark .bg-reef-300 { background-color: rgba(60, 184, 153, 0.35); }
+.dark .text-reef-600,
+.dark .text-reef-700,
+.dark .text-reef-800 { color: #8fe7cc; }
+
+/* Ikon kotak gradient biru-muda → gradient laut gelap */
+.dark [class*="d9edf6,#d0f2e6"] {
+  background-image: linear-gradient(135deg, #0f507a, #0c4a40);
+}
+
+/* Sisa badge status (StatusBadge) → versi gelap serasi */
+.dark .bg-slate-100 { background-color: rgba(121, 163, 189, 0.18); }
+.dark .text-slate-600 { color: #a9c6d8; }
+.dark .bg-violet-100 { background-color: rgba(139, 92, 246, 0.26); }
+.dark .text-violet-700 { color: #c4b5fd; }
+.dark [class*="fdeeea"] { background-color: rgba(210, 77, 66, 0.18); }
+.dark .text-coral-600 { color: #f3a097; }
+.dark .bg-emerald-100 { background-color: rgba(30, 156, 128, 0.2); }
+.dark .text-emerald-600,
+.dark .text-emerald-700 { color: #7fe0c4; }
+
+/* Token astrix versi gelap — menimpa token putih layer astrix di dalam .dark */
+.dark .astrix-theme {
+  --background: #041d30;
+  --foreground: #d9edf6;
+  --card: #072c47;
+  --card-foreground: #d9edf6;
+  --popover: #072c47;
+  --popover-foreground: #d9edf6;
+  --primary: #3f9cc6;
+  --primary-foreground: #041d30;
+  --secondary: #0b3d5f;
+  --secondary-foreground: #d9edf6;
+  --muted: #0b3d5f;
+  --muted-foreground: #79a3bd;
+  --accent: #0c4a40;
+  --accent-foreground: #a3e4cf;
+  --destructive: #e86a5e;
+  --success: #3cb899;
+  --info: #79bcdb;
+  --warning: #d4b876;
+  --border: #0f507a;
+  --input: #0f507a;
+  --ring: #3cb899;
+  --sidebar: #041d30;
+  --sidebar-foreground: #d9edf6;
+  --sidebar-primary: #3cb899;
+  --sidebar-primary-foreground: #041d30;
+  --sidebar-accent: #0b3d5f;
+  --sidebar-accent-foreground: #d9edf6;
+  --sidebar-border: #0f507a;
+  --sidebar-ring: #3cb899;
+  --shadow-sidebar-item: drop-shadow(1px 2px 12px rgb(0 0 0 / 30%));
+}
+
+/* Portal dropdown/sheet/tooltip astrix juga ikut gelap */
+.dark body:has(.astrix-theme) [data-slot="sidebar"][data-mobile="true"],
+.dark body:has(.astrix-theme) [data-slot="dropdown-menu-content"],
+.dark body:has(.astrix-theme) [data-slot="sheet-content"],
+.dark body:has(.astrix-theme) [data-slot="tooltip-content"] {
+  --background: #072c47;
+  --foreground: #d9edf6;
+  --card: #072c47;
+  --card-foreground: #d9edf6;
+  --popover: #072c47;
+  --popover-foreground: #d9edf6;
+  --primary: #3f9cc6;
+  --primary-foreground: #041d30;
+  --secondary: #0b3d5f;
+  --secondary-foreground: #d9edf6;
+  --muted: #0b3d5f;
+  --muted-foreground: #79a3bd;
+  --accent: #0b3d5f;
+  --accent-foreground: #d9edf6;
+  --destructive: #e86a5e;
+  --success: #3cb899;
+  --info: #79bcdb;
+  --warning: #d4b876;
+  --border: #0f507a;
+  --input: #0f507a;
+  --ring: #3cb899;
+}
+
+/* Leaflet: popup & atribusi menyesuaikan tema gelap */
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: #072c47;
+  color: #d9edf6;
+}
+.dark .leaflet-container a.leaflet-popup-close-button { color: #79bcdb; }
+.dark .leaflet-control-attribution {
+  background: rgba(4, 29, 48, 0.78);
+  color: #79a3bd;
+}
+.dark .leaflet-control-attribution a { color: #a9d6ea; }
+
+/* ============================================================
+   PETA LAUT (NAUTICAL CHART) — gaya peta navigasi klasik
+   ============================================================ */
+
+/* Kertas chart */
+.leaflet-container.chart-sea { background-color: #f7f6ee; }
+.dark .leaflet-container.chart-sea { background-color: #082238; }
+
+/* Daratan kuning ala chart (versi gelap: emas zaitun redup) */
+.nl-land {
+  fill: #f6e9ac;
+  fill-opacity: 1;
+  stroke: #b39b52;
+  stroke-width: 1.2px;
+  stroke-linejoin: round;
+}
+.dark .nl-land { fill: #5a4f26; stroke: #9a8a52; }
+
+/* Zona perairan dangkal sian */
+.nl-shallow {
+  fill: #cfe8e2;
+  fill-opacity: 0.8;
+  stroke: #9ecdbf;
+  stroke-width: 0.8px;
+}
+.dark .nl-shallow { fill: #0e3a52; fill-opacity: 0.9; stroke: #2c627e; }
+
+/* Garis isobath — dangkal solid, dalam putus-putus */
+.nl-contour {
+  fill: none;
+  stroke: #5e97b8;
+  stroke-width: 1.1px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dark .nl-contour { stroke: #6fb3d8; }
+.nl-contour-deep { stroke-dasharray: 7px 5px; stroke: #7fa9c2; }
+.dark .nl-contour-deep { stroke: #5492b4; }
+
+/* Alur pelayaran putus-putus */
+.nl-lane {
+  fill: none;
+  stroke: #c0578f;
+  stroke-width: 1.4px;
+  stroke-dasharray: 10px 7px;
+  stroke-linecap: round;
+}
+.dark .nl-lane { stroke: #d886b5; }
+.nl-ferry {
+  fill: none;
+  stroke: #c0578f;
+  stroke-width: 1.7px;
+  stroke-dasharray: 12px 8px;
+  stroke-linecap: round;
+}
+.dark .nl-ferry { stroke: #e39ec6; }
+
+/* Graticule tipis */
+.nl-graticule {
+  fill: none;
+  stroke: rgba(70, 110, 140, 0.4);
+  stroke-width: 0.7px;
+  stroke-dasharray: 2px 5px;
+}
+.dark .nl-graticule { stroke: rgba(120, 170, 205, 0.28); }
+
+/* Label kedalaman (soundings) — angka polos dengan halo warna kertas */
+.leaflet-tooltip.nl-sounding {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 650;
+  color: #2f546f;
+  text-shadow: 0 0 2px #f7f6ee, 0 0 3px #f7f6ee;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.dark .leaflet-tooltip.nl-sounding {
+  color: #cfe6f4;
+  text-shadow: 0 0 2px #082238, 0 0 3px #082238;
+}
+.leaflet-tooltip.nl-sounding::before { display: none; }
+
+/* Nama tempat — serif miring ala chart */
+.leaflet-tooltip.nl-place {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #4a5230;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: 0 0 2px #f7f6ee, 0 1px 2px #f7f6ee;
+}
+.dark .leaflet-tooltip.nl-place {
+  color: #d9cf9a;
+  text-shadow: 0 0 2px #082238, 0 1px 3px #082238;
+}
+.leaflet-tooltip.nl-place::before { display: none; }
+
+.leaflet-tooltip.nl-place-lg {
+  font-size: 15px;
+  letter-spacing: 0.4em;
+  font-weight: 600;
+  color: #3d5a74;
+  text-transform: uppercase;
+}
+.dark .leaflet-tooltip.nl-place-lg { color: #9cc8e8; }
+
+.leaflet-tooltip.nl-place-sm { font-size: 9.5px; color: #5a6238; }
+.dark .leaflet-tooltip.nl-place-sm { color: #c2c491; }
+
+/* Label angka isobath */
+.leaflet-tooltip.nl-contour-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 2px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #3e7396;
+  pointer-events: none;
+}
+.dark .leaflet-tooltip.nl-contour-label { color: #7fb6d8; }
+.leaflet-tooltip.nl-contour-label::before { display: none; }
+
+/* Label alur pelayaran */
+.leaflet-tooltip.nl-lane-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+  color: #b04a83;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.dark .leaflet-tooltip.nl-lane-label { color: #e39ec6; }
+.leaflet-tooltip.nl-lane-label::before { display: none; }
+
+/* Label graticule */
+.leaflet-tooltip.nl-grat-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-size: 9px;
+  color: #71879a;
+  pointer-events: none;
+}
+.dark .leaflet-tooltip.nl-grat-label { color: #7fa3bd; }
+.leaflet-tooltip.nl-grat-label::before { display: none; }
+
+/* Popup titik ukur kedalaman */
+.bluetech-depth-popup .leaflet-popup-content {
+  margin: 10px 14px 12px;
+  width: 210px !important;
+  line-height: 1.4;
+}
+.bluetech-depth-popup .leaflet-popup-content-wrapper { border-radius: 12px; }
+/* Popup tampil di atas blok judul/kompas/skala (overlay HTML z-800) */
+.chart-sea .leaflet-popup-pane { z-index: 950; }
+
+/* Blok judul chart */
+.chart-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #26333d;
+}
+.dark .chart-title { color: #d9edf6; }
+.chart-subtitle {
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #6b7c8a;
+}
+.dark .chart-subtitle { color: #79a3bd; }
+.chart-scaleline {
+  margin-top: 1px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 10.5px;
+  color: #33566e;
+}
+.dark .chart-scaleline { color: #9cc8e8; }
+
+/* Rose kompas */
+.chart-compass { color: #35566e; opacity: 0.85; }
+.dark .chart-compass { color: #a9d3ea; opacity: 0.8; }
+
+/* Skala grafis */
+.chart-scalebar .bar-label {
+  color: #22384a;
+  text-shadow: 0 0 3px rgba(247, 246, 238, 0.9);
+  font-size: 9.5px;
+  font-weight: 600;
+}
+.dark .chart-scalebar .bar-label {
+  color: #cfe6f4;
+  text-shadow: 0 0 3px rgba(8, 34, 56, 0.9);
+}
+.chart-scalebar .bar-d { background: #22384a; }
+.dark .chart-scalebar .bar-d { background: #cfe6f4; }
+.chart-scalebar .bar-l { background: transparent; border: 1px solid #22384a; }
+.dark .chart-scalebar .bar-l { border-color: #cfe6f4; }
+
+/* Swatch legenda peta laut (menyesuaikan tema) */
+.leg-land { background: #f6e9ac; border-color: #b39b52; }
+.dark .leg-land { background: #5a4f26; border-color: #9a8a52; }
+.leg-shallow { background: #cfe8e2; border-color: #9ecdbf; }
+.dark .leg-shallow { background: #0e3a52; border-color: #2c627e; }
+.leg-contour { border-color: #5e97b8; }
+.dark .leg-contour { border-color: #6fb3d8; }
+.leg-contour-deep { border-color: #7fa9c2; }
+.dark .leg-contour-deep { border-color: #5492b4; }
+.leg-lane { border-color: #c0578f; }
+.dark .leg-lane { border-color: #d886b5; }
+
+/* ============================================================
+   MODE MASYARAKAT UMUM — kelas tampilan publik (role: masyarakat)
+   Sengaja dibedakan dari admin: panel kaca lebih terang, kartu
+   lembut membulat, hero gradasi laut→reef, tombol gradien ramah.
+   ============================================================ */
+
+/* Panel kaca publik: header, footer, kartu & tombol Area Admin */
+.pub-glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(240, 250, 253, 0.4));
+  backdrop-filter: blur(16px) saturate(1.1);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.dark .pub-glass {
+  background: linear-gradient(180deg, rgba(7, 44, 71, 0.74), rgba(4, 29, 48, 0.6));
+  border-color: rgba(79, 148, 195, 0.28);
+}
+
+/* Kartu lembut di dalam tampilan publik */
+.pub-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: 0 14px 40px -24px rgba(11, 61, 95, 0.35);
+}
+.dark .pub-card {
+  background: rgba(7, 44, 71, 0.62);
+  border-color: rgba(79, 148, 195, 0.25);
+  box-shadow: 0 14px 40px -24px rgba(0, 0, 0, 0.5);
+}
+
+/* Tombol gradien publik */
+.pub-btn-masyarakat {
+  background: linear-gradient(135deg, #1e9c80, #3cb899);
+  box-shadow: 0 10px 24px -10px rgba(30, 156, 128, 0.65);
+}
+.pub-btn-masyarakat:hover {
+  background: linear-gradient(135deg, #178d73, #34a98c);
+}
+.pub-btn-admin {
+  background: linear-gradient(135deg, #0b3d5f, #146795);
+  box-shadow: 0 10px 24px -10px rgba(11, 61, 95, 0.65);
+}
+.pub-btn-admin:hover {
+  background: linear-gradient(135deg, #09314d, #105984);
+}
+
+/* Hero publik: gradasi laut → reef dengan teks putih */
+.pub-hero {
+  background: linear-gradient(120deg, #0b3d5f 0%, #146795 48%, #1e9c80 100%);
+  box-shadow: 0 24px 55px -28px rgba(11, 61, 95, 0.5);
+}
+.dark .pub-hero {
+  background: linear-gradient(120deg, #072c47 0%, #0f507a 48%, #147d67 100%);
+}
+
+/* Baris daftar lembut (peringatan, laporan, kontak) */
+.pub-row {
+  background: rgba(241, 244, 248, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+.dark .pub-row {
+  background: rgba(11, 61, 95, 0.5);
+  border-color: rgba(79, 148, 195, 0.22);
+}
+
+/* Kartu akses cepat dengan angkat halus */
+.pub-tile {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+.pub-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px -24px rgba(11, 61, 95, 0.45);
+}
+.dark .pub-tile:hover {
+  box-shadow: 0 20px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+/* Input formulir laporan warga */
+.pub-input {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #dfe6ee;
+  color: var(--foreground);
+  width: 100%;
+}
+.pub-input::placeholder {
+  color: #5b7285;
+}
+.pub-input:focus {
+  border-color: #1d80b2;
+  box-shadow: 0 0 0 3px rgba(29, 128, 178, 0.16);
+}
+.dark .pub-input {
+  background: rgba(7, 44, 71, 0.72);
+  border-color: #1d5c8a;
+  color: var(--foreground);
+}
+.dark .pub-input:focus {
+  border-color: #3f9cc6;
+  box-shadow: 0 0 0 3px rgba(63, 156, 198, 0.22);
+}
+
+/* Dropdown opsi select publik */
+.pub-input option {
+  color: #0e212e;
+  background: #ffffff;
+}
+
+/* Render piksel raster GIS agar tajam saat zoom */
+.losari-raster-overlay {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Tooltip hover poligon & marker peta Losari */
+.leaflet-tooltip.losari-hover-tooltip {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #b7d8ec;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px -12px rgba(7, 44, 71, 0.35);
+  color: #0b3d5f;
+  padding: 9px 12px;
+  white-space: normal;
+  max-width: 280px;
+}
+.leaflet-tooltip.losari-hover-tooltip::before {
+  border-top-color: #b7d8ec;
+}
+.bluetech-losari-marker {
+  background: transparent;
+  border: 0;
+}
